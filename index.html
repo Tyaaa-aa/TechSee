@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <title>TechSee</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/ico" href="favicon.ico">
+    <link rel="apple-touch-icon" sizes="128x128" href="images/icons/icon-128x128.png">
+    <link rel="stylesheet" href="css/mystyle.css?v=7">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+        crossorigin="" />
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+        crossorigin=""></script>
+    <script src="js/leaflet.geometryutil.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"
+        integrity="sha512-UXumZrZNiOwnTcZSHLOfcTs0aos2MzBWHXOHOuB0J/R44QB0dwY5JgfbvljXcklVf65Gc4El6RjZ+lnwd2az2g=="
+        crossorigin="anonymous"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.2.3/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule="" src="https://unpkg.com/ionicons@5.2.3/dist/ionicons/ionicons.js"></script>
+    <script type="text/javascript" src="js/script.js?v=7"></script>
+
+    <!-- <link rel="icon" sizes="192x192" href="nicehighres.png">
+    <link rel="icon" sizes="128x128" href="nicehighres.png">
+    <link rel="stylesheet" type="text/css" href="addtohomescreen.css">
+    <script src="addtohomescreen.js"></script> -->
+
+
+</head>
+
+<body>
+    <div class="main">
+        <div id="topBar">            
+            <div id="taxis"></div>
+            <!-- <div id="taxiStands"></div> -->
+        </div>
+        <div id="mapid"></div>
+        <div class="recenter_btn recenter_btn_active map_btns">
+            <ion-icon name="locate"></ion-icon>
+        </div>
+        <div class="fav_btn map_btns">
+            <!-- <ion-icon name="star"></ion-icon> -->
+            <ion-icon name="bookmarks"></ion-icon>
+        </div>
+        <div class="darkMode_btn map_btns">
+            <!-- <ion-icon name="star"></ion-icon> -->
+            <ion-icon class="darkMode_icon" name="contrast"></ion-icon>
+        </div>
+        <div class="infoCard" id="infoCard">
+            <div id="infoCard_lines"></div>
+            <div id="location">
+                <div>
+                    <input type="search" id="search" value="Loading" name="search">
+                    <ion-icon name="search" class="searchIcon" id="searchIcon"></ion-icon>
+                </div>
+                <div id="addToFav">
+                    <ion-icon class="addToFav" name="star-outline"></ion-icon>
+                </div>
+            </div>
+
+            <!-- <a href="#" onClick="requestFullScreen();"> click </a> -->
+            <iframe id="eMap" src="https://maps.google.com/maps?q=35.856737, 10.606619&z=15&output=embed" width="360"
+                height="270" frameborder="0" style="border:0"></iframe>
+
+            <input type="button" value="Get Directions" class="redirect btn">
+        </div>
+        <div class="favCard" id="favCard">
+            <div id="favCard_lines"></div>
+            <ul class="favList" id="favCard">
+            </ul>
+        </div>
+    </div>
+
+    <div class="onboarding" id="onboarding">
+        <div class="frame1 frames" id="frame1">
+            <img class="obImg" src="images/onboarding_art_logo.png" alt="Taxi Infographic Image">
+            <img class="obImg obAnims obAnim1" src="images/onboarding_art1.png" alt="Taxi Infographic Image">
+            <img class="obImg obAnims obAnim2" src="images/onboarding_art2.png" alt="Taxi Infographic Image">
+            <img class="obImg obAnims obAnim3" src="images/onboarding_art3.png" alt="Taxi Infographic Image">
+            <img class="obImg obAnims obAnim4" src="images/onboarding_art4.png" alt="Taxi Infographic Image">
+            <h1>Welcome to TechSee</h1>
+            <p>TechSee helps you find taxis & taxi stands available nearby. All live taxi location data provided by LTA.
+            </p>
+        </div>
+        <div class="frame2 frames" id="frame2">
+            <img class="obImg" src="images/howToUse.png" alt="Legend">
+            <!-- <img class="obImg obBG" src="images/onboarding_BG.png" alt="Legend"> -->
+            <h1>How To Use:</h1>
+            <p>Tap on a taxi or taxi stand to get more details about its location!</p>
+            <p class="swipeArrow">&#10093;</p>
+        </div>
+        <div class="frame3 frames" id="frame3">
+            <img class="obImg" src="images/location_prompt.png" alt="Mockup">
+            <h1>TechSee Requires Your Location</h1>
+            <h3>Press the start button to use the app</h3>
+
+        </div>
+        <div class="pagination">
+            <div class="dot"></div>
+        </div>
+        <input type="button" value="Start" class="start btn">
+
+    </div>
+</body>
+<script type='text/javascript' charset='utf-8'>
+    // // Hides mobile browser's address bar when page is done loading.
+    // window.addEventListener('load', function (e) {
+    //     setTimeout(function () {
+    //         window.scrollTo(0, 1);
+    //     }, 1);
+    // }, false);
+</script>
+
+</html>
