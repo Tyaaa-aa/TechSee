@@ -18,7 +18,7 @@ Stop wasting time standing around areas with no taxis and navigate to them easil
 ## Demo and Live Site
 Video Demonstration: https://www.youtube.com/watch?v=lylGsISUkDc
 
-Live Site: https://tya.design/TechSee/
+Live Site: https://tya.design/techsee/
 
 
 ## Screenshots
